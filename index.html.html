@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绿韵竹风·人文林科大 - 中南林业科技大学特色景点解说图册</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 全局样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f7f0;
+            background-image: linear-gradient(135deg, #f5f7f0 0%, #e8f0e3 100%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(135deg, #2d5a27 0%, #3e7147 100%);
+            padding: 1rem 2rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            transition: all 0.3s ease;
+        }
+
+        .navbar:hover {
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            margin-right: 12px;
+            color: #d4edda;
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover i {
+            transform: scale(1.1);
+        }
+
+        .logo h1 {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-item {
+            margin-left: 1rem;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .nav-link.active {
+            background: linear-gradient(135deg, #4caf50 0%, #43a047 100%);
+            color: white;
+            border-color: #4caf50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease;
+            background-color: #fff;
+        }
+
+        /* 英雄区样式 */
+        .hero {
+            background-image: linear-gradient(rgba(45, 90, 39, 0.7), rgba(45, 90, 39, 0.7)), 
+                              url('地图.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content h2 {
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #43a047 0%, #3d8b40 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* 旅游动机筛选 */
+        .tour-motivation {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0 40px;
+        }
+
+        .motivation-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            border: 2px solid #4caf50;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #2e5c3a;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .motivation-btn:hover, .motivation-btn.active {
+            background: linear-gradient(135deg, #4caf50 0%, #43a047 100%);
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* 内容区域 */
+        .content-area {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px auto 60px;
+            max-width: 1400px;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        /* 地图和景点列表 */
+        .map-container {
+            flex: 1;
+            min-width: 350px;
+            max-width: 650px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin: 0 auto;
+        }
+
+        .map-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #2d5a27;
+            position: relative;
+        }
+
+        .map-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent 0%, #4caf50 50%, transparent 100%);
+            margin: 15px auto 0;
+        }
+
+        .campus-map {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            background-image: url('地图.jpg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 2px solid #c8e6c9;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .map-area {
+            position: absolute;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+            opacity: 0.8;
+            background-color: transparent;
+            border: 2px solid transparent;
+        }
+        
+        .map-area span {
+            display: block;
+            position: absolute;
+            background: rgba(45, 90, 39, 0.9);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.8rem;
+            z-index: 100;
+            white-space: nowrap;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+            pointer-events: none;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: auto;
+            text-align: center;
+        }
+        
+        .map-area:hover {
+            transform: scale(1.1);
+            z-index: 20;
+            opacity: 1;
+            border: 2px solid white;
+        }
+        
+        .map-area:hover span {
+            background: rgba(45, 90, 39, 1);
+            font-size: 0.9rem;
+        }
+        .location-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-top: 25px;
+        }
+
+        .location-item {
+            padding: 15px 20px;
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 4px solid #4caf50;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .location-item:hover {
+            background: linear-gradient(135deg, #c8e6c9 0%, #b8e0b8 100%);
+            transform: translateX(10px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .location-item.active {
+            background: linear-gradient(135deg, #4caf50 0%, #43a047 100%);
+            color: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* 景点详情区域 */
+        .info-container {
+            flex: 1;
+            min-width: 350px;
+            max-width: 650px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .info-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .info-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+
+        .info-title {
+            color: #2d5a27;
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .audio-controls {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .audio-btn {
+            background: linear-gradient(135deg, #4caf50 0%, #43a047 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 1.3rem;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.2);
+        }
+
+        .audio-btn:hover {
+            background: linear-gradient(135deg, #43a047 0%, #3d8b40 100%);
+            transform: scale(1.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 景点图片轮播 */
+        .spot-image {
+            width: 100%;
+            height: 320px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .image-slider {
+            position: relative;
+            height: 100%;
+        }
+
+        .image-slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .image-slider img.active {
+            opacity: 1;
+            transform: scale(1.05);
+        }
+
+        .slider-controls {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px;
+        }
+
+        .slider-controls button {
+            background: rgba(255,255,255,0.9);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+
+        .slider-controls button:hover {
+            background: rgba(255,255,255,1);
+            transform: scale(1.2);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        /* 解说词标签页 */
+        .commentary-tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            color: #666;
+            transition: all 0.3s ease;
+            position: relative;
+            font-weight: 600;
+        }
+
+        .tab-btn.active {
+            color: #4caf50;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #4caf50 0%, #81c784 100%);
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .tab-btn:hover {
+            color: #4caf50;
+            background-color: rgba(76, 175, 80, 0.05);
+        }
+
+        .commentary-content {
+            margin-bottom: 25px;
+        }
+
+        .tab-panel {
+            display: none;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        /* 景点特色标签 */
+        .spot-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            padding: 10px 18px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            color: #2e5c3a;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* AI生成说明 */
+        .ai-generated-note {
+            background: linear-gradient(135deg, #f1f8e9 0%, #e8f5e9 100%);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 1rem;
+            color: #5d7c5d;
+            border-left: 4px solid #4caf50;
+            margin-top: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .ai-generated-note i {
+            margin-right: 10px;
+            color: #4caf50;
+            font-size: 1.2rem;
+        }
+
+
+        /* 地图控制样式 */
+        .map-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .edit-controls {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .edit-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+        
+        .status-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: #4caf50;
+            transition: all 0.3s ease;
+        }
+        
+        .edit-mode .status-dot {
+            background-color: #ff9800;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .edit-mode .edit-indicator span:last-child {
+            color: #ff9800;
+        }
+        
+        /* 编辑模式下的地图区域样式 */
+        .edit-mode .map-area {
+            position: relative;
+            cursor: move;
+        }
+        
+        .edit-mode .map-area::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            right: -4px;
+            width: 12px;
+            height: 12px;
+            background-color: #ff9800;
+            border: 2px solid white;
+            border-radius: 50%;
+            cursor: nwse-resize;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        
+        /* 添加新地点按钮 */
+        .add-spot-btn {
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, #ff9800 0%, #f57c00 100%);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 100;
+        }
+        
+        .add-spot-btn:hover {
+            transform: scale(1.1) rotate(90deg);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        
+        /* 编辑面板样式 */
+        .edit-panel {
+            position: fixed;
+            top: 0;
+            right: -500px;
+            width: 450px;
+            height: 100vh;
+            background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%);
+            box-shadow: -5px 0 25px rgba(0,0,0,0.15);
+            padding: 30px;
+            overflow-y: auto;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .edit-panel.active {
+            right: 0;
+        }
+        
+        .panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e8f5e9;
+        }
+        
+        .panel-title {
+            color: #2d5a27;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .close-panel {
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.3s ease;
+        }
+        
+        .close-panel:hover {
+            color: #2d5a27;
+        }
+        
+        /* 表单样式 */
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2d5a27;
+            font-size: 1rem;
+        }
+        
+        .form-input,
+        .form-textarea,
+        .form-select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background-color: white;
+        }
+        
+        .form-input:focus,
+        .form-textarea:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: #4caf50;
+            box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.1);
+        }
+        
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        /* 图片上传样式 */
+        .image-upload {
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        .image-upload:hover {
+            border-color: #4caf50;
+            background-color: #f1f8e9;
+        }
+        
+        .image-upload input[type="file"] {
+            display: none;
+        }
+        
+        .upload-preview {
+            margin-top: 15px;
+            max-height: 200px;
+            overflow: hidden;
+            border-radius: 8px;
+            border: 2px solid #e0e0e0;
+        }
+        
+        .upload-preview img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* 保存按钮 */
+        .save-controls {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 2px solid #e8f5e9;
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+        
+        /* 遮罩层 */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            z-index: 999;
+            display: none;
+        }
+        
+        .overlay.active {
+            display: block;
+        }
+
+        /* 页脚 */
+        footer {
+            background: linear-gradient(135deg, #2d5a27 0%, #3e7147 100%);
+            color: #fff;
+            padding: 40px 0;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+        }
+
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-info {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .footer-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #d4edda;
+            font-weight: 700;
+        }
+
+        .footer-info p {
+            margin-bottom: 15px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            opacity: 0.9;
+        }
+
+        .footer-links a:hover {
+            color: #d4edda;
+            opacity: 1;
+        }
+
+        .footer-copyright {
+            width: 100%;
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 25px;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* 关于图册响应式设计 */
+        @media (max-width: 768px) {
+            .about-content {
+                max-width: 95% !important;
+                padding: 25px !important;
+                margin: 0 auto !important;
+            }
+            
+            .about-content h3 {
+                font-size: 1.5rem !important;
+            }
+            
+            .about-content p,
+            .about-content ul {
+                font-size: 1rem !important;
+            }
+            
+            /* 导航栏 */
+            .hamburger {
+                display: block;
+            }
+            
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 70px;
+                flex-direction: column;
+                background: linear-gradient(135deg, #2d5a27 0%, #3e7147 100%);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0,0,0,0.1);
+            }
+            
+            .nav-menu.active {
+                left: 0;
+            }
+            
+            .nav-item {
+                margin: 2.5rem 0;
+            }
+            
+            /* 英雄区 */
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.8rem;
+            }
+            
+            /* 内容区域 */
+            .content-area {
+                flex-direction: column;
+            }
+            
+            /* 地图 */
+            .campus-map {
+                height: 300px;
+            }
+            
+            /* 景点详情 */
+            .info-title {
+                font-size: 1.8rem;
+            }
+            
+            /* 页脚 */
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* 导航栏 */
+            .navbar {
+                padding: 1rem;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
+            }
+            
+            /* 英雄区 */
+            .hero-content h2 {
+                font-size: 2rem;
+            }
+            
+            .hero-content h3 {
+                font-size: 1.5rem;
+            }
+            
+            /* 按钮 */
+            .btn {
+                padding: 12px 28px;
+                font-size: 1.1rem;
+            }
+            
+            /* 内容 */
+            .info-container {
+                padding: 20px;
+            }
+            
+            /* 关于图册小屏幕适配 */
+            .about-content {
+                max-width: 98% !important;
+                padding: 20px !important;
+                margin: 0 auto !important;
+            }
+            
+            .about-content h3 {
+                font-size: 1.3rem !important;
+            }
+            
+            .about-content p,
+            .about-content ul {
+                font-size: 0.95rem !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-tree"></i>
+                <h1>绿韵竹风·人文林科大</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">首页</a></li>
+                <li><a href="#scenic-spots" class="nav-link">特色景点</a></li>
+                <li><a href="#about" class="nav-link">关于图册</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- 首页/封面 -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>中南林业科技大学</h2>
+            <h3>特色景点解说图册</h3>
+            <p>探索森林学府的自然之美、科技之新、人文之厚</p>
+            <a href="#scenic-spots" class="btn">开始探索</a>
+        </div>
+    </section>
+
+    <!-- 特色景点区域 -->
+    <section id="scenic-spots" class="container">
+
+
+        <!-- 内容区域 -->
+        <div class="content-area">
+            <!-- 地图和景点列表 -->
+            <div class="map-container">
+                <h2 class="map-title"><i class="fas fa-map-marked-alt"></i> 校园导览图</h2>
+                <div class="campus-map" id="campusMap">
+                    <!-- 地图区域通过JS动态生成 -->
+                </div>
+                
+                <div class="location-list" id="locationList">
+                    <!-- 景点列表通过JS动态生成 -->
+                </div>
+            </div>
+            
+            <!-- 景点详情 -->
+            <div class="info-container">
+                <div class="info-header">
+                    <h2 class="info-title" id="spotName">镜月湖与竹制廊桥</h2>
+                    <div class="audio-controls">
+                        <button class="audio-btn" id="playAudio" title="播放AI解说">
+                            <i class="fas fa-play"></i>
+                        </button>
+                        <button class="audio-btn" id="stopAudio" title="停止播放">
+                            <i class="fas fa-stop"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- 景点图片轮播 -->
+                <div class="spot-image" id="spotImage">
+                    <div class="image-slider">
+                        <!-- 图片通过JS动态生成 -->
+                    </div>
+                    <div class="slider-controls">
+                        <button class="prev-btn" id="prevImage">‹</button>
+                        <button class="next-btn" id="nextImage">›</button>
+                    </div>
+                </div>
+                
+                <!-- 景点特色标签 -->
+                <div class="spot-features" id="spotFeatures">
+                    <!-- 特色标签通过JS动态生成 -->
+                </div>
+                
+                <!-- 解说词标签页 -->
+                <h3 style="margin-bottom: 20px; color: #2d5a27; font-size: 1.5rem;">景点解说</h3>
+                <div class="commentary-tabs" id="commentaryTabs">
+                    <!-- 标签页通过JS动态生成 -->
+                </div>
+                <div class="commentary-content" id="commentaryContent">
+                    <!-- 解说内容通过JS动态生成 -->
+                </div>
+                
+                <!-- AI生成说明 -->
+                <div class="ai-generated-note">
+                    <i class="fas fa-robot"></i>
+                    <span>本景点解说音频和部分配图由AI技术生成，结合校园实景与AI创作，提供沉浸式导览体验。</span>
+                </div>
+            </div>
+        </div>
+
+            <!-- 关于图册 -->
+    <section id="about" class="container" style="margin: 0px 0;">
+        <h2 class="map-title" style="margin-bottom: 35px; text-align: center;">关于解说图册</h2>
+        <div class="about-content" style="background: linear-gradient(135deg, #ffffff 0%, #f8fff8 100%); border-radius: 16px; padding: 35px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); max-width: 800px; margin: 0 auto; text-align: center;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #2d5a27; font-weight: 700;">设计背景</h3>
+            <p style="margin-bottom: 30px; font-size: 1.1rem; line-height: 1.8; color: #333; text-align: left;">在数字化时代背景下，高校形象传播方式正从传统纸质媒介向数字多媒体方向转型。中南林业科技大学作为一所以林业和生态环境为特色的综合性大学，拥有丰富的自然景观资源、独特的竹材科技应用成果和深厚的人文历史底蕴，但目前缺乏系统、生动、具有吸引力的数字化景点解说资料。</p>
+            
+            <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #2d5a27; font-weight: 700;">主题思想</h3>
+            <p style="margin-bottom: 25px; font-size: 1.1rem; line-height: 1.8; color: #333; text-align: left;">本解说图册以"绿韵竹风·人文林科大"为创新主题，旨在通过"三韵"展现学校特色：</p>
+            <ul style="margin-left: 20px; margin-bottom: 30px; font-size: 1.1rem; line-height: 2; color: #333; text-align: left;">
+                <li style="margin-bottom: 12px;"><strong style="color: #2d5a27;">绿韵——自然生态之美</strong>：突出学校作为"森林学府"的自然景观优势</li>
+                <li style="margin-bottom: 12px;"><strong style="color: #2d5a27;">竹风——科技应用之新</strong>：聚焦学校在竹材科技领域的创新成果</li>
+                <li><strong style="color: #2d5a27;">人文——历史文化之厚</strong>：挖掘学校的人文历史内涵</li>
+            </ul>
+            
+            <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: #2d5a27; font-weight: 700;">制作方法</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; color: #333; text-align: left;">图册采用AIGC（人工智能生成内容）技术创作，通过文生图或图生图技术生成景点照片，使用AI写作工具生成个性化解说文字，并结合AI配音技术为解说词添加自然流畅的语音。最终通过现代化的网页设计，呈现出交互式的电子版解说图册。</p>
+        </div>
+    </section>
+    </section>
+
+
+
+
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <h3>绿韵竹风·人文林科大</h3>
+                    <p>中南林业科技大学特色景点解说图册</p>
+                    <p>通过AI技术打造的交互式校园导览体验</p>
+                    <p>探索林科大的自然之美与人文魅力</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#home">首页</a>
+                    <a href="#scenic-spots">特色景点</a>
+                    <a href="#about">关于图册</a>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2026 中南林业科技大学特色景点解说图册. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 校园景点数据（只保留指定的景点和图片）
+        const campusSpots = [
+            {
+                id: 1,
+                name: "林科大桥",
+                subtitle: "校园标志性建筑",
+                description: "林科大桥是中南林业科技大学的标志性建筑之一，连接校园东西两岸，是师生日常通行的重要通道，也是校园内的重要地标。",
+                motivation: ["nature", "architecture", "campus"],
+                features: ["标志性建筑", "交通要道", "校园地标", "现代设计"],
+                images: ["林科大桥1.png"],
+                commentaries: {
+                    "interesting": "注意！前方需要“过河”！这座连接我们东西园的林科大桥，可不是普通的桥。我们私底下都叫它“早八救命桥”或“知识传送带”。早上，它是奔向教室的“疾走通道”；傍晚，它是吹风看夕阳的“慢时光走廊”。快在桥上许个愿：祝我从此学业路，一桥平川！"
+                    
+                },
+                audioPath: "audio/桥.mp3",
+                coordinates: { left: "40%", top: "40%", width: "10%", height: "6%" },
+
+            },
+            // {
+            //     id: 2,
+            //     name: "图书馆东馆",
+            //     subtitle: "知识的殿堂，学习的圣地",
+            //     description: "中南林业科技大学图书馆东馆拥有丰富的藏书和现代化的学习设施，是学校的知识中心和学生学习的理想场所。",
+            //     motivation: ["architecture", "culture", "campus"],
+            //     features: ["知识殿堂", "现代化设施", "学习环境", "藏书丰富"],
+            //     images: ["图书馆东馆.jpg"],
+            //     commentaries: {
+            //         "professional": "中南林业科技大学图书馆东馆是学校重要的教学辅助设施，建筑面积达数万平方米，藏书量丰富。馆内配备了现代化的检索系统、电子阅览室和自习室，为师生提供了优质的学习和科研环境。",
+            //         "guide": "同学们看过来！这就是咱们学校的图书馆东馆，不仅藏书丰富，学习环境也非常好。馆内有安静的自习室、先进的电子阅览室，还有舒适的阅读区。无论是准备考试还是做学术研究，这里都是你的最佳选择！"
+            //     },
+            //     audioPath: "audio/scenic2.mp3",
+            //     coordinates: { left: "65%", top: "30%", width: "10%", height: "10%" },
+
+            // },
+            // {
+            //     id: 3,
+            //     name: "图书馆西馆",
+            //     subtitle: "知识的殿堂，学习的圣地",
+            //     description: "中南林业科技大学图书馆西馆拥有丰富的藏书和现代化的学习设施，是学校的知识中心和学生学习的理想场所。",
+            //     motivation: ["architecture", "culture", "campus"],
+            //     features: ["知识殿堂", "现代化设施", "学习环境", "藏书丰富"],
+            //     images: ["图书馆西馆.png"],
+            //     commentaries: {
+            //         "professional": "中南林业科技大学图书馆西馆是学校重要的教学辅助设施，与东馆共同构成了完整的图书馆服务体系。馆内配备了现代化的检索系统、电子阅览室和自习室，为师生提供了优质的学习和科研环境。",
+            //         "guide": "同学们看过来！这就是咱们学校的图书馆西馆，学习环境非常好。馆内有安静的自习室、先进的电子阅览室，还有舒适的阅读区。无论是准备考试还是做学术研究，这里都是你的最佳选择！"
+            //     },
+            //     audioPath: "audio/scenic3.mp3",
+            //     coordinates: { left: "25%", top: "30%", width: "10%", height: "10%" },
+
+            // },
+            {
+                id: 4,
+                name: "陶铸广场",
+                subtitle: "校园文化中心",
+                description: "陶铸广场位于学校东门入口处，是学校的重要文化活动场所和师生聚集的中心，体现了学校浓厚的人文气息。",
+                motivation: ["culture", "campus", "architecture"],
+                features: ["文化中心", "活动场所", "校园地标", "人文气息"],
+                images: ["陶铸广1场.png"],
+                commentaries: {
+                    "emotional": "穿过大桥，视野豁然开朗！这里是陶铸广场，我们学校的“精神心脏”。广场中央的陶铸爷爷雕像，就像一位智慧的长者，默默注视着每一个成长的我们。开学典礼、社团活动、周末小憩都在这里发生。它是我们的露天礼堂，也是发呆晒太阳的宝地。来，感受一下这份庄重又温暖的“校园正气”！",},
+                    
+                audioPath: "audio/scenic4.mp3",
+                coordinates: { left: "75%", top: "40%", width: "8%", height: "8%" },
+
+            },
+            {
+                id: 5,
+                name: "东门",
+                subtitle: "校园主入口",
+                description: "东门是中南林业科技大学的主要入口，气势恢宏，设计现代，是学校对外展示的重要窗口和师生日常进出校园的主要通道。",
+                motivation: ["architecture", "campus", "culture"],
+                features: ["校园主入口", "现代设计", "交通枢纽", "学校门户"],
+                images: ["东门1.png"],
+                commentaries: {
+                    "interesting": "看！这就是我们的“游戏起始点”——东门！它可不止是一道门，更像一个巨大的“能量加载器”。跨过这里，你身上的“游客Buff”就会自动切换成“林科大人”模式。深吸一口气，是不是闻到了树木的清香和知识的味道？我们的冒险，正式开始！",
+                    
+                },
+                audioPath: "audio/东门.mp3",
+                coordinates: { left: "85%", top: "45%", width: "8%", height: "8%" },
+
+            },
+            {
+                id: 6,
+                name: "林荫大道",
+                subtitle: "校园绿色走廊",
+                description: "林荫大道是中南林业科技大学的主要通道，两旁绿树成荫，四季景色各异，是师生们日常出行和休闲散步的好去处。",
+                motivation: ["nature", "campus"],
+                features: ["绿色走廊", "四季景色", "休闲散步", "校园生活"],
+                images: ["林荫大1道.png"],
+                commentaries: {
+                    "interesting": "走过东门，恭喜你掉进了“绿色传送带”！看这两排高大的树木，它们可是学校的“元老级NPC”，天天站岗，为你撑起一片天然空调。阳光透过叶子洒下来，像不像星星掉在了路上？据说在这条路上背书，效率翻倍哦！",
+                    
+                },
+                audioPath: "audio/林荫大道.mp3",
+                coordinates: { left: "35%", top: "45%", width: "10%", height: "6%" },
+
+            },
+            {
+                id: 7,
+                name: "红楼",
+                subtitle: "历史的见证者",
+                description: "红楼是中南林业科技大学的历史建筑之一，具有悠久的历史和深厚的文化底蕴，见证了学校的发展历程。",
+                motivation: ["culture", "architecture"],
+                features: ["历史建筑", "文化底蕴", "红色记忆", "校园文化"],
+                images: ["红楼1.png"],
+                commentaries: {
+                    "interesting": "转头看，那位穿着“红色复古装”的建筑，就是红楼。它可是校园里的“时光摄影师”，砖瓦里藏满了老故事。在一群现代建筑里，它显得格外温柔沉静。拍照时记得调个复古滤镜，分分钟出大片，还能收获“历史学长”的沉稳气质Buff！",
+                    
+                },
+                audioPath: "audio/scenic6.mp3",
+                coordinates: { left: "65%", top: "20%", width: "8%", height: "8%" },
+
+            },
+            // {
+            //     id: 8,
+            //     name: "体育艺术馆",
+            //     subtitle: "活力与艺术的殿堂",
+            //     description: "体育艺术馆是学校的体育和艺术活动中心，拥有现代化的体育设施和艺术表演场地，是校园活力的象征。",
+            //     motivation: ["campus", "architecture", "culture"],
+            //     features: ["体育设施", "艺术表演", "多功能场馆", "校园活力"],
+            //     images: ["体育艺术馆.jpg"],
+            //     commentaries: {
+            //         "interesting": "这里是咱们学校最有活力的地方——体育艺术馆！不仅有标准的篮球场、羽毛球场，还有一个现代化的艺术表演厅。记得上次学校举办的校园歌手大赛就是在这里举行的，现场气氛超级热烈！",
+            //         "professional": "体育艺术馆是中南林业科技大学的重要文体设施，建筑面积达数万平方米，包含体育馆和艺术馆两部分。体育馆配备了标准的运动场地和健身设施；艺术馆则拥有一个可容纳数千人的大剧场和多个小型排练厅。"
+            //     },
+            //     audioPath: "audio/scenic7.mp3",
+            //     coordinates: { left: "75%", top: "25%", width: "10%", height: "10%" },
+
+            // },
+            {
+                id: 9,
+                name: "木竹博物馆",
+                subtitle: "竹材科技的展示窗口",
+                description: "木竹博物馆是中南林业科技大学特色建筑，展示了学校在竹材科技领域的研究成果和丰富的竹文化藏品，是了解竹材科技和竹文化的重要场所。",
+                motivation: ["culture", "architecture", "nature"],
+                features: ["竹材科技", "文化展示", "科研成果", "特色建筑"],
+                images: ["博物馆1.png"],
+                commentaries: {
+                    "interesting": "接下来，是科技爱好者的天堂——木竹博物馆！竹子在这里不再是简单的植物，它被科学家们“点化”成了地板、房子、甚至艺术品！这里就像一个巨大的“自然科技盲盒”，让你亲眼看到木头和竹子如何“七十二变”。保证让你惊呼：“原来你是这样的竹子！”",
+                    
+                },
+                audioPath: "audio/scenic8.mp3",
+                coordinates: { left: "50%", top: "20%", width: "10%", height: "10%" },
+
+            },
+            {
+                id: 10,
+                name: "树人楼",
+                subtitle: "学术交流的重要场所",
+                description: "树人楼是中南林业科技大学的重要教学楼之一，位于陶铸广场旁边，是师生学术交流的重要场所。",
+                motivation: ["culture", "campus", "architecture"],
+                features: ["教学设施", "学术交流", "校园文化", "教育场所"],
+                images: ["树人楼1.png"], // 临时使用此图片，实际应替换为树人楼图片
+                commentaries: {
+                    "interesting": "最后一关，我们来到树人楼。这名字取得妙——“十年树木，百年树人”。这里可不是只有上课，它更像一扇“学术任意门”。走廊里擦肩而过的可能是某位学术大牛，随便走进一个讲座都可能打开新世界的大门。在这里，思想碰撞的声音，可比下课铃声动听多了！",
+                    
+                },
+                audioPath: "audio/scenic8.mp3",
+                coordinates: { left: "70%", top: "47%", width: "8%", height: "8%" },
+
+            }
+        ];
+
+        // 全局变量
+        let currentSpot = campusSpots[0];
+        let audio = null;
+        let isPlaying = false;
+        let currentMotivation = "all";
+        let currentImageIndex = 0;
+        let slideInterval;
+
+        // 初始化页面
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化导航栏
+            initMobileNav();
+            
+            // 初始化平滑滚动
+            initSmoothScroll();
+            
+            // 设置默认导航active状态
+            const homeLink = document.querySelector('a[href="#home"]');
+            if (homeLink) {
+                homeLink.classList.add('active');
+            }
+            
+            // 初始化景点
+            initScenicSpots();
+        });
+
+        // 初始化景点展示
+        function initScenicSpots() {
+            // 生成地图区域
+            generateMapAreas();
+            
+            // 生成景点列表
+            generateLocationList();
+            
+            // 显示第一个景点信息
+            displaySpotInfo(currentSpot);
+            
+            // 绑定旅游动机按钮事件
+            document.querySelectorAll('.motivation-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // 更新活动按钮
+                    document.querySelectorAll('.motivation-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 更新当前动机
+                    currentMotivation = this.getAttribute('data-motivation');
+                    
+                    // 更新景点列表
+                    generateLocationList();
+                });
+            });
+        }
+
+        // 生成地图可点击区域
+        function generateMapAreas() {
+            const mapContainer = document.getElementById('campusMap');
+            
+            campusSpots.forEach(spot => {
+                const area = document.createElement('div');
+                area.className = `map-area ${spot.areaClass}`;
+                area.style.left = spot.coordinates.left;
+                area.style.top = spot.coordinates.top;
+                area.style.width = spot.coordinates.width;
+                area.style.height = spot.coordinates.height;
+                area.innerHTML = `<span>${spot.name}</span>`;
+                
+                area.addEventListener('click', () => {
+                    // 直接更新景点信息
+                    currentSpot = spot;
+                    displaySpotInfo(spot);
+                    stopAudio();
+                    updateLocationListActive(spot.id);
+                    document.getElementById('scenic-spots').scrollIntoView({ behavior: 'smooth' });
+                });
+                
+                mapContainer.appendChild(area);
+            });
+            
+            // 添加地图图例
+            const legend = document.createElement('div');
+            legend.style.position = 'absolute';
+            legend.style.bottom = '10px';
+            legend.style.left = '10px';
+            legend.style.background = 'rgba(255, 255, 255, 0.95)';
+            legend.style.padding = '10px 15px';
+            legend.style.borderRadius = '8px';
+            legend.style.fontSize = '0.9rem';
+            legend.style.boxShadow = '0 2px 10px rgba(0,0,0,0.15)';
+            mapContainer.appendChild(legend);
+        }
+
+
+
+        // 生成景点列表
+        function generateLocationList() {
+            const locationList = document.getElementById('locationList');
+            locationList.innerHTML = '';
+            
+            // 根据当前动机筛选景点
+            let filteredSpots = campusSpots;
+            if (currentMotivation !== 'all') {
+                filteredSpots = campusSpots.filter(spot => 
+                    spot.motivation.includes(currentMotivation)
+                );
+            }
+            
+            filteredSpots.forEach(spot => {
+                const item = document.createElement('div');
+                item.className = 'location-item';
+                if (spot.id === currentSpot.id) {
+                    item.classList.add('active');
+                }
+                item.innerHTML = `
+                    <div style="font-weight: bold; color: #2d5a27; font-size: 1.1rem;">${spot.name}</div>
+                    <div style="font-size: 0.9rem; margin-top: 8px; color: #5d7c5d;">${spot.subtitle}</div>
+                `;
+                
+                item.addEventListener('click', () => {
+                    // 更新当前景点
+                    currentSpot = spot;
+                    // 显示景点信息
+                    displaySpotInfo(spot);
+                    // 停止当前音频
+                    stopAudio();
+                    // 更新活动项
+                    updateLocationListActive(spot.id);
+                });
+                
+                locationList.appendChild(item);
+            });
+        }
+
+        // 更新景点列表的活动状态
+        function updateLocationListActive(spotId) {
+            document.querySelectorAll('.location-item').forEach(item => {
+                item.classList.remove('active');
+                if (item.querySelector('div').textContent === campusSpots.find(spot => spot.id === spotId).name) {
+                    item.classList.add('active');
+                }
+            });
+        }
+
+        // 显示景点信息
+        function displaySpotInfo(spot) {
+            // 更新标题
+            document.getElementById('spotName').textContent = spot.name;
+            
+            // 更新特色标签
+            const spotFeatures = document.getElementById('spotFeatures');
+            spotFeatures.innerHTML = '';
+            spot.features.forEach(feature => {
+                const tag = document.createElement('div');
+                tag.className = 'feature-tag';
+                tag.textContent = feature;
+                spotFeatures.appendChild(tag);
+            });
+            
+            // 更新图片轮播
+            const spotImage = document.getElementById('spotImage');
+            const imageSlider = spotImage.querySelector('.image-slider');
+            imageSlider.innerHTML = '';
+            
+            spot.images.forEach((imgSrc, index) => {
+                const img = document.createElement('img');
+                img.src = imgSrc;
+                img.alt = `${spot.name} - 图片${index + 1}`;
+                if (index === 0) {
+                    img.classList.add('active');
+                }
+                imageSlider.appendChild(img);
+            });
+            
+            // 重置图片索引
+            currentImageIndex = 0;
+            
+            // 更新图片轮播控制
+            updateImageSliderControls();
+            
+            // 更新解说词标签页
+            const commentaryTabs = document.getElementById('commentaryTabs');
+            const commentaryContent = document.getElementById('commentaryContent');
+            commentaryTabs.innerHTML = '';
+            commentaryContent.innerHTML = '';
+            
+            // 为每个解说类型创建标签页
+            let isFirstTab = true;
+            for (const [type, content] of Object.entries(spot.commentaries)) {
+                // 创建标签按钮
+                const tabBtn = document.createElement('button');
+                tabBtn.className = 'tab-btn';
+                if (isFirstTab) {
+                    tabBtn.classList.add('active');
+                }
+                
+                // 设置标签名称
+                const typeNames = {
+                    'interesting': '生动有趣版',
+                    'professional': '专业解说版',
+                    'emotional': '情感共鸣版',
+                    'guide': '实用指南版'
+                };
+                tabBtn.textContent = typeNames[type] || type;
+                tabBtn.setAttribute('data-tab', type);
+                
+                // 绑定标签点击事件
+                tabBtn.addEventListener('click', () => {
+                    // 更新活动标签
+                    commentaryTabs.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+                    tabBtn.classList.add('active');
+                    
+                    // 更新显示内容
+                    commentaryContent.querySelectorAll('.tab-panel').forEach(panel => panel.classList.remove('active'));
+                    commentaryContent.querySelector(`#${type}`).classList.add('active');
+                });
+                
+                commentaryTabs.appendChild(tabBtn);
+                
+                // 创建内容面板
+                const tabPanel = document.createElement('div');
+                tabPanel.id = type;
+                tabPanel.className = 'tab-panel';
+                if (isFirstTab) {
+                    tabPanel.classList.add('active');
+                }
+                tabPanel.innerHTML = `<p style="font-size: 1.1rem; line-height: 1.8; color: #333;">${content}</p>`;
+                
+                commentaryContent.appendChild(tabPanel);
+                
+                isFirstTab = false;
+            }
+            
+            // 更新地图区域的活动状态
+            document.querySelectorAll('.map-area').forEach((area, index) => {
+                area.style.opacity = '0.8';
+                area.style.transform = 'scale(1)';
+            });
+            
+            const mapAreas = document.querySelectorAll('.map-area');
+            const currentIndex = campusSpots.findIndex(s => s.id === spot.id);
+            if (mapAreas[currentIndex]) {
+                mapAreas[currentIndex].style.opacity = '1';
+                mapAreas[currentIndex].style.transform = 'scale(1.05)';
+                mapAreas[currentIndex].style.zIndex = '10';
+            }
+        }
+
+        // 更新图片轮播控制
+        function updateImageSliderControls() {
+            // 清除之前的定时器
+            clearInterval(slideInterval);
+            
+            // 自动轮播
+            slideInterval = setInterval(nextImage, 5000);
+            
+            // 绑定手动控制事件
+            document.getElementById('prevImage').addEventListener('click', () => {
+                clearInterval(slideInterval);
+                prevImage();
+                slideInterval = setInterval(nextImage, 5000);
+            });
+            
+            document.getElementById('nextImage').addEventListener('click', () => {
+                clearInterval(slideInterval);
+                nextImage();
+                slideInterval = setInterval(nextImage, 5000);
+            });
+            
+            // 鼠标悬停时停止自动轮播
+            const imageSlider = document.querySelector('.image-slider');
+            imageSlider.addEventListener('mouseenter', () => {
+                clearInterval(slideInterval);
+            });
+            
+            imageSlider.addEventListener('mouseleave', () => {
+                slideInterval = setInterval(nextImage, 5000);
+            });
+        }
+
+        // 上一张图片
+        function prevImage() {
+            const images = document.querySelectorAll('.image-slider img');
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        // 下一张图片
+        function nextImage() {
+            const images = document.querySelectorAll('.image-slider img');
+            images[currentImageIndex].classList.remove('active');
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add('active');
+        }
+
+        // // 播放景点AI解说音频
+        function playSpotAudio() {
+            // 停止当前音频
+            stopAudio();
+            
+            // 使用Web Speech API合成语音
+            if ('speechSynthesis' in window) {
+                // 停止任何正在进行的语音
+                window.speechSynthesis.cancel();
+                
+                // 获取当前活动的解说内容
+                const activeTab = document.querySelector('.tab-panel.active');
+                const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
+                
+                // 创建语音实例
+                const utterance = new SpeechSynthesisUtterance();
+                utterance.text = text;
+                utterance.lang = 'zh-CN';
+                utterance.rate = 1.0;
+                utterance.pitch = 1.0;
+                utterance.volume = 1;
+                
+                // 播放
+                window.speechSynthesis.speak(utterance);
+                
+                // 更新播放按钮状态
+                isPlaying = true;
+                updateAudioButton();
+                
+                // 语音结束时的处理
+                utterance.onend = function() {
+                    isPlaying = false;
+                    updateAudioButton();
+                };
+            } else {
+                // 如果不支持Web Speech API，尝试播放音频文件
+                try {
+                    audio = new Audio(currentSpot.audioPath);
+                    audio.play();
+                    
+                    isPlaying = true;
+                    updateAudioButton();
+                    
+                    audio.onended = function() {
+                        isPlaying = false;
+                        updateAudioButton();
+                    };
+                } catch (error) {
+                    // 如果都不支持，显示提示
+                    alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
+                }
+            }
+        }
+// 播放景点AI解说音频
+        // function playSpotAudio() {
+        //     // 停止当前音频
+        //     stopAudio();
+            
+        //     // 首先尝试播放预录制的音频文件
+        //     if (currentSpot.audioPath) {
+        //         try {
+        //             audio = new Audio(currentSpot.audioPath);
+        //             audio.play();
+                    
+        //             isPlaying = true;
+        //             updateAudioButton();
+                    
+        //             audio.onended = function() {
+        //                 isPlaying = false;
+        //                 updateAudioButton();
+        //             };
+                    
+        //             return; // 成功播放音频文件后，直接返回
+        //         } catch (error) {
+        //             console.log("播放音频文件失败，尝试使用语音合成", error);
+        //         }
+        //     }
+            
+        //     // 如果音频文件不存在或播放失败，使用Web Speech API合成语音
+        //     if ('speechSynthesis' in window) {
+        //         // 停止任何正在进行的语音
+        //         window.speechSynthesis.cancel();
+                
+        //         // 获取当前活动的解说内容
+        //         const activeTab = document.querySelector('.tab-panel.active');
+        //         const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
+                
+        //         // 创建语音实例
+        //         const utterance = new SpeechSynthesisUtterance();
+        //         utterance.text = text;
+        //         utterance.lang = 'zh-CN';
+        //         utterance.rate = 1.0;
+        //         utterance.pitch = 1.0;
+        //         utterance.volume = 1;
+                
+        //         // 播放
+        //         window.speechSynthesis.speak(utterance);
+                
+        //         // 更新播放按钮状态
+        //         isPlaying = true;
+        //         updateAudioButton();
+                
+        //         // 语音结束时的处理
+        //         utterance.onend = function() {
+        //             isPlaying = false;
+        //             updateAudioButton();
+        //         };
+        //     } else {
+        //         // 如果都不支持，显示提示
+        //         alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
+        //     }
+        // }
+        // 停止音频播放
+        function stopAudio() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+            
+            if (audio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+            
+            isPlaying = false;
+            updateAudioButton();
+        }
+
+        // 更新音频按钮状态
+        function updateAudioButton() {
+            const playBtn = document.getElementById('playAudio');
+            
+            if (isPlaying) {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                playBtn.title = "暂停播放";
+            } else {
+                playBtn.innerHTML = '<i class="fas fa-play"></i>';
+                playBtn.title = "播放AI解说";
+            }
+        }
+
+        // 初始化响应式导航菜单
+        function initMobileNav() {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+            
+            // 切换导航菜单
+            function toggleNav() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            }
+            
+            // 点击汉堡菜单按钮
+            hamburger.addEventListener('click', toggleNav);
+            
+            // 点击导航链接时关闭菜单
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // 初始化平滑滚动
+        function initSmoothScroll() {
+            const navLinks = document.querySelectorAll('a[href^="#"]');
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 移除所有导航链接的active类
+                    navLinks.forEach(navLink => navLink.classList.remove('active'));
+                    // 为当前点击的链接添加active类
+                    this.classList.add('active');
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        const offsetTop = targetElement.offsetTop;
+                        const navbarHeight = document.querySelector('.navbar').offsetHeight;
+                        const scrollPosition = offsetTop - navbarHeight;
+                        
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+
+
+        
+        // 绑定音频控制按钮事件
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('playAudio').addEventListener('click', playSpotAudio);
+            document.getElementById('stopAudio').addEventListener('click', stopAudio);
+            
+            // 尝试从本地存储加载数据
+            loadSpotsFromLocalStorage();
+        });
+    </script>
+</body>
+</html>
