@@ -1673,54 +1673,69 @@
             if (currentSpot.audioPath) {
                 try {
                     audio = new Audio(currentSpot.audioPath);
-                    audio.play();
                     
+                    // 尝试播放音频并处理可能的错误
+                    audio.play().then(() => {
+                        isPlaying = true;
+                        updateAudioButton();
+                        
+                        audio.onended = function() {
+                            isPlaying = false;
+                            updateAudioButton();
+                        };
+                    }).catch(error => {
+                        console.error('音频播放失败:', error);
+                        
+                        // 音频播放失败，回退到Web Speech API
+                        fallbackToSpeechSynthesis();
+                    });
+                } catch (error) {
+                    console.error('创建音频对象失败:', error);
+                    
+                    // 创建音频对象失败，回退到Web Speech API
+                    fallbackToSpeechSynthesis();
+                }
+                
+                return;
+            }
+            
+            // 如果没有音频路径，直接使用Web Speech API
+            fallbackToSpeechSynthesis();
+            
+            // Web Speech API回退函数
+            function fallbackToSpeechSynthesis() {
+                if ('speechSynthesis' in window) {
+                    // 停止任何正在进行的语音
+                    window.speechSynthesis.cancel();
+                    
+                    // 获取当前活动的解说内容
+                    const activeTab = document.querySelector('.tab-panel.active');
+                    const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
+                    
+                    // 创建语音实例
+                    const utterance = new SpeechSynthesisUtterance();
+                    utterance.text = text;
+                    utterance.lang = 'zh-CN';
+                    utterance.rate = 1.0;
+                    utterance.pitch = 1.0;
+                    utterance.volume = 1;
+                    
+                    // 播放
+                    window.speechSynthesis.speak(utterance);
+                    
+                    // 更新播放按钮状态
                     isPlaying = true;
                     updateAudioButton();
                     
-                    audio.onended = function() {
+                    // 语音结束时的处理
+                    utterance.onend = function() {
                         isPlaying = false;
                         updateAudioButton();
                     };
-                    
-                    return; // 成功播放音频文件后，直接返回
-                } catch (error) {
-                    console.log("播放音频文件失败，尝试使用语音合成", error);
+                } else {
+                    // 如果都不支持，显示提示
+                    alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
                 }
-            }
-            
-            // 如果音频文件不存在或播放失败，使用Web Speech API合成语音
-            if ('speechSynthesis' in window) {
-                // 停止任何正在进行的语音
-                window.speechSynthesis.cancel();
-                
-                // 获取当前活动的解说内容
-                const activeTab = document.querySelector('.tab-panel.active');
-                const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
-                
-                // 创建语音实例
-                const utterance = new SpeechSynthesisUtterance();
-                utterance.text = text;
-                utterance.lang = 'zh-CN';
-                utterance.rate = 1.0;
-                utterance.pitch = 1.0;
-                utterance.volume = 1;
-                
-                // 播放
-                window.speechSynthesis.speak(utterance);
-                
-                // 更新播放按钮状态
-                isPlaying = true;
-                updateAudioButton();
-                
-                // 语音结束时的处理
-                utterance.onend = function() {
-                    isPlaying = false;
-                    updateAudioButton();
-                };
-            } else {
-                // 如果都不支持，显示提示
-                alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
             }
         }
         // 停止音频播放
