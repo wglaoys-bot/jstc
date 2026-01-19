@@ -1612,84 +1612,11 @@
         }
 
         // // 播放景点AI解说音频
-        function playSpotAudio() {
-            // 停止当前音频
-            stopAudio();
-            
-            // 使用Web Speech API合成语音
-            if ('speechSynthesis' in window) {
-                // 停止任何正在进行的语音
-                window.speechSynthesis.cancel();
-                
-                // 获取当前活动的解说内容
-                const activeTab = document.querySelector('.tab-panel.active');
-                const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
-                
-                // 创建语音实例
-                const utterance = new SpeechSynthesisUtterance();
-                utterance.text = text;
-                utterance.lang = 'zh-CN';
-                utterance.rate = 1.0;
-                utterance.pitch = 1.0;
-                utterance.volume = 1;
-                
-                // 播放
-                window.speechSynthesis.speak(utterance);
-                
-                // 更新播放按钮状态
-                isPlaying = true;
-                updateAudioButton();
-                
-                // 语音结束时的处理
-                utterance.onend = function() {
-                    isPlaying = false;
-                    updateAudioButton();
-                };
-            } else {
-                // 如果不支持Web Speech API，尝试播放音频文件
-                try {
-                    audio = new Audio(currentSpot.audioPath);
-                    audio.play();
-                    
-                    isPlaying = true;
-                    updateAudioButton();
-                    
-                    audio.onended = function() {
-                        isPlaying = false;
-                        updateAudioButton();
-                    };
-                } catch (error) {
-                    // 如果都不支持，显示提示
-                    alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
-                }
-            }
-        }
-// 播放景点AI解说音频
         // function playSpotAudio() {
         //     // 停止当前音频
         //     stopAudio();
             
-        //     // 首先尝试播放预录制的音频文件
-        //     if (currentSpot.audioPath) {
-        //         try {
-        //             audio = new Audio(currentSpot.audioPath);
-        //             audio.play();
-                    
-        //             isPlaying = true;
-        //             updateAudioButton();
-                    
-        //             audio.onended = function() {
-        //                 isPlaying = false;
-        //                 updateAudioButton();
-        //             };
-                    
-        //             return; // 成功播放音频文件后，直接返回
-        //         } catch (error) {
-        //             console.log("播放音频文件失败，尝试使用语音合成", error);
-        //         }
-        //     }
-            
-        //     // 如果音频文件不存在或播放失败，使用Web Speech API合成语音
+        //     // 使用Web Speech API合成语音
         //     if ('speechSynthesis' in window) {
         //         // 停止任何正在进行的语音
         //         window.speechSynthesis.cancel();
@@ -1719,10 +1646,83 @@
         //             updateAudioButton();
         //         };
         //     } else {
-        //         // 如果都不支持，显示提示
-        //         alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
+        //         // 如果不支持Web Speech API，尝试播放音频文件
+        //         try {
+        //             audio = new Audio(currentSpot.audioPath);
+        //             audio.play();
+                    
+        //             isPlaying = true;
+        //             updateAudioButton();
+                    
+        //             audio.onended = function() {
+        //                 isPlaying = false;
+        //                 updateAudioButton();
+        //             };
+        //         } catch (error) {
+        //             // 如果都不支持，显示提示
+        //             alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
+        //         }
         //     }
         // }
+// 播放景点AI解说音频
+        function playSpotAudio() {
+            // 停止当前音频
+            stopAudio();
+            
+            // 首先尝试播放预录制的音频文件
+            if (currentSpot.audioPath) {
+                try {
+                    audio = new Audio(currentSpot.audioPath);
+                    audio.play();
+                    
+                    isPlaying = true;
+                    updateAudioButton();
+                    
+                    audio.onended = function() {
+                        isPlaying = false;
+                        updateAudioButton();
+                    };
+                    
+                    return; // 成功播放音频文件后，直接返回
+                } catch (error) {
+                    console.log("播放音频文件失败，尝试使用语音合成", error);
+                }
+            }
+            
+            // 如果音频文件不存在或播放失败，使用Web Speech API合成语音
+            if ('speechSynthesis' in window) {
+                // 停止任何正在进行的语音
+                window.speechSynthesis.cancel();
+                
+                // 获取当前活动的解说内容
+                const activeTab = document.querySelector('.tab-panel.active');
+                const text = activeTab ? activeTab.textContent : `${currentSpot.name}，${currentSpot.subtitle}。${currentSpot.description}`;
+                
+                // 创建语音实例
+                const utterance = new SpeechSynthesisUtterance();
+                utterance.text = text;
+                utterance.lang = 'zh-CN';
+                utterance.rate = 1.0;
+                utterance.pitch = 1.0;
+                utterance.volume = 1;
+                
+                // 播放
+                window.speechSynthesis.speak(utterance);
+                
+                // 更新播放按钮状态
+                isPlaying = true;
+                updateAudioButton();
+                
+                // 语音结束时的处理
+                utterance.onend = function() {
+                    isPlaying = false;
+                    updateAudioButton();
+                };
+            } else {
+                // 如果都不支持，显示提示
+                alert('您的浏览器不支持语音合成功能，请使用Chrome或Edge浏览器获得完整体验。');
+            }
+        }
         // 停止音频播放
         function stopAudio() {
             if ('speechSynthesis' in window) {
